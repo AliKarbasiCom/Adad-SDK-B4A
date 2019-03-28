@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="sharedpref" path="adadSharedPreferences.xml"/>
+    <exclude domain="sharedpref" path="adadCacheSharedPreferences.xml"/>
+    <exclude domain="file" path="unsent_requests"/>
+</full-backup-content>

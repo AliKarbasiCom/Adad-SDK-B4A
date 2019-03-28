@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="b4a.example"
+	android:versionCode="1"
+	android:versionName="1"
+	android:installLocation="internalOnly">
+	
+	<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="25"/>
+	<supports-screens android:largeScreens="true" 
+	    android:normalScreens="true" 
+	    android:smallScreens="true" 
+	    android:anyDensity="true"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<application
+		android:icon="@drawable/icon"
+		android:label="Adad B4A"
+		android:theme="@style/DarkTheme">
+		
+		<activity android:name="ir.adad.fullscreen.AdadFullscreenBannerAdActivity"
+			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:theme="@style/Theme.Light.AdadActivity">
+			</activity>
+		
+			<activity android:name="ir.adad.video.AdadVideoAdActivity"
+			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:theme="@style/Theme.Light.AdadActivity">
+			</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".main"
+			android:label="Adad B4A"
+			android:screenOrientation="portrait">
+			<intent-filter>
+			   <action android:name="android.intent.action.MAIN" />
+			   <category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			
+		</activity>
+		<service android:name=".starter">
+		</service>
+		<receiver android:name=".starter$starter_BR">
+		</receiver>
+	</application>
+</manifest>

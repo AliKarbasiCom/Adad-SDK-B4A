@@ -1,0 +1,332 @@
+﻿Build1=Default,b4a.example
+Group=Default Group
+IconFile=
+Library1=core
+Library2=adad-b4a-5.1.0
+Library3=phone
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.DarkTheme)~\n~'End of default text.~\n~AddApplicationText(~\n~	<activity android:name="ir.adad.fullscreen.AdadFullscreenBannerAdActivity"~\n~	android:configChanges="keyboardHidden|orientation|screenSize"~\n~	android:theme="@style/Theme.Light.AdadActivity">~\n~	</activity>~\n~~\n~	<activity android:name="ir.adad.video.AdadVideoAdActivity"~\n~	android:configChanges="keyboardHidden|orientation|screenSize"~\n~	android:theme="@style/Theme.Light.AdadActivity">~\n~	</activity>~\n~)~\n~' www.AKarbasi.ir~\n~' @AliKarbasiCom
+Module1=Starter
+NumberOfFiles=0
+NumberOfLibraries=3
+NumberOfModules=1
+Version=8
+@EndOfDesignText@
+ #Region  Project Attributes
+  #ApplicationLabel: Adad B4A
+  #VersionCode: 1
+  #VersionName: 1
+  #SupportedOrientations: portrait
+  #CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes
+  #FullScreen: False
+  #IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+
+	Private fullAdButton As Button
+	Private rewardVideoAdButton As Button
+	Private closableVideoAdButton As Button
+	Private generalVideoAdButton As Button
+	Private adad As AdadB4aPlugin
+
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+
+	adad.initializeAdad("XXXX")
+	adad.addBannerAdToActivity("XXXX", "bottom", " center")
+	adad.addBannerAdToActivity("XXXX", "top", " center")
+	adad.prepareFullscreenBannerAd("XXXX")
+	fullAdButton.Initialize("fullAdButton")
+	fullAdButton.Text = "Show fullscreen Banner Ad"
+	Activity.AddView(fullAdButton, 0, 10%y, 100dip, 100dip)
+	adad.prepareRewardVideoAd("XXXX")
+	rewardVideoAdButton.Initialize("rewardVideoAdButton")
+	rewardVideoAdButton.Text = "Show Reward Video Ad"
+	Activity.AddView(rewardVideoAdButton, 20%x, 10%y, 100dip, 100dip)
+	adad.prepareClosableVideoAd("XXXX")
+	closableVideoAdButton.Initialize("closableVideoAdButton")
+	closableVideoAdButton.Text = "Show Closable Video Ad"
+	Activity.AddView(closableVideoAdButton, 0, 20%y, 100dip, 100dip)
+	adad.prepareGeneralVideoAd("XXXX")
+	generalVideoAdButton.Initialize("generalVideoAdButton")
+	generalVideoAdButton.Text = "Show General Video Ad"
+	Activity.AddView(generalVideoAdButton, 20%x, 20%y, 100dip, 100dip)
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+Sub fullAdButton_Click
+	
+	If adad.isFullscreenBannerReady() Then
+		adad.showFullscreenBannerAd()
+	Else
+		ToastMessageShow("fullScreenAd is not ready to show, try later", False)
+	End If
+
+End Sub
+
+
+Sub rewardVideoAdButton_Click
+	
+	If adad.isRewardVideoAdReady Then
+		adad.showRewardVideoAd()
+	Else
+		ToastMessageShow("RewardVideoAd is not ready to show, please try later", False)
+	End If
+	
+End Sub
+
+
+Sub closableVideoAdButton_Click
+	
+	If adad.isClosableVideoAdReady Then
+		adad.showClosableVideoAd()
+	Else
+		ToastMessageShow("ClosableVideoAd is not ready to show, please try later", False)
+	End If
+	
+End Sub
+
+
+Sub generalVideoAdButton_Click
+	
+	If adad.isGeneralVideoAdReady() Then
+		adad.showGeneralVideoAd()
+	Else
+		ToastMessageShow("GeneralVideoAd is not ready to show, please try later", False)
+	End If
+	
+End Sub
+
+
+Sub adadevent_adadbanneradload(id As Int)
+	
+	Log("banner ad load event with id -> " & id)
+	
+End Sub
+
+Sub adadevent_adadbanneradshow(id As Int)
+	
+	Log("banner ad show event with id -> " & id)
+	
+End Sub
+
+Sub adadevent_adadbanneraderror(id As Int, errorCode As Int, errorMessage As String)
+	
+	Log("banner ad error event with id -> " & errorMessage)
+	
+End Sub
+
+Sub adadevent_adadbanneraddestroy(id As Int)
+	
+	Log("banner ad destroy event with id -> " & id)
+	
+End Sub
+
+Sub adadevent_adadbanneradhide(id As Int)
+	
+	Log("banner ad hide event with id -> " & id)
+	
+End Sub
+
+Sub adadevent_adadbanneradactionoccurred(id As Int, code As Int)
+	
+	Log("banner ad action occurred event with id -> " & id)
+	
+End Sub
+
+Sub adadevent_adadfullscreenadload
+	
+	Log("full screen ad load event")
+	
+End Sub
+
+Sub adadevent_adadfullscreenadshow
+	
+	Log("full screen ad show event")
+	
+End Sub
+
+Sub adadevent_adadfullscreenaderror(errorCode As Int, errorMessage As String)
+	
+	Log("full screen ad error event -> " & errorMessage)
+	
+End Sub
+
+Sub adadevent_adadfullscreenaddestroy
+	
+	Log("full screen ad destroy event")
+	
+End Sub
+
+Sub adadevent_adadfullscreenadclose
+	
+	Log("full screen ad close event")
+	
+End Sub
+
+Sub adadevent_adadfullscreenadactionoccurred(code As Int)
+	
+	Log("full screen ad action occurred event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoadload
+	
+	Log("Reward video ad load event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoadshow
+	
+	Log("Reward video ad show event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoaderror(errorCode As Int, errorMessage As String)
+	
+	Log("video ad error event -> " & errorMessage)
+	
+End Sub
+
+Sub adadevent_adadrewardvideoadactionoccurred(code As Int)
+	
+	Log("Reward video ad action occurred event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoaddestroy
+	
+	Log("Reward video ad destroy event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoadclose
+	
+	Log("Reward video ad close event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoadcomplete
+	
+	Log("Reward video ad complete event")
+	
+End Sub
+
+Sub adadevent_adadrewardvideoadstart
+	
+	Log("Reward video ad start event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoadload
+	
+	Log("closable video ad load event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoadshow
+	
+	Log("closable video ad show event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoaderror(errorCode As Int, errorMessage As String)
+	
+	Log("video ad error event -> " & errorMessage)
+	
+End Sub
+
+Sub adadevent_adadclosablevideoadactionoccurred(code As Int)
+	
+	Log("closable video ad action occurred event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoaddestroy
+	
+	Log("closable video ad destroy event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoadclose
+	
+	Log("closable video ad close event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoadcomplete
+	
+	Log("closable video ad complete event")
+	
+End Sub
+
+Sub adadevent_adadclosablevideoadstart
+	
+	Log("closable video ad start event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoadload
+	
+	Log("general video ad load event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoadshow
+	
+	Log("general video ad show event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoaderror(errorCode As Int, errorMessage As String)
+	
+	Log("video ad error event -> " & errorMessage)
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoadactionoccurred(code As Int)
+	
+	Log("general video ad action occurred event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoaddestroy
+	
+	Log("general video ad destroy event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoadclose
+	
+	Log("general video ad close event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoadcomplete
+	
+	Log("general video ad complete event")
+	
+End Sub
+
+Sub adadevent_adadgeneralvideoadstart
+	
+	Log("general video ad start event")
+	
+End Sub

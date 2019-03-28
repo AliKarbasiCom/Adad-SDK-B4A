@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.02</doclet-version-NOT-library-version>
+    <class>
+        <name>ir.adad.androidsdk.b4a.AdadB4aPlugin</name>
+        <shortname>AdadB4aPlugin</shortname>
+        <owner>activity</owner>
+        <event>adadbanneradload(id as Int)</event>
+        <event>adadbanneradshow(id as Int)</event>
+        <event>adadbanneraderror(id as Int, errorCode As Int, errorMessage As String)</event>
+        <event>adadbanneradactionoccurred(id as Int)</event>
+        <event>adadfullscreenadload</event>
+        <event>adadfullscreenadshow</event>
+        <event>adadfullscreenaderror(errorCode As Int, errorMessage As String)</event>
+        <event>adadfullscreenadactionoccurred</event>
+        <event>adadfullscreenadclose</event>
+        <event>adadclosablevideoadload</event>
+        <event>adadclosablevideoadshow</event>
+        <event>adadclosablevideoaderror(errorCode As Int, errorMessage As String)</event>
+        <event>adadclosablevideoaddestroy</event>
+        <event>adadclosablevideoadclick</event>
+        <event>adadclosablevideoadclose</event>
+        <event>adadclosablevideoadcomplete</event>
+        <event>adadclosablevideoadstart</event>
+        <event>adadgeneralvideoadload</event>
+        <event>adadgeneralvideoadshow</event>
+        <event>adadgeneralvideoaderror(errorCode As Int, errorMessage As String)</event>
+        <event>adadgeneralvideoaddestroy</event>
+        <event>adadgeneralvideoadclick</event>
+        <event>adadgeneralvideoadclose</event>
+        <event>adadgeneralvideoadcomplete</event>
+        <event>adadgeneralvideoadstart</event>
+        <event>adadrewardvideoadload</event>
+        <event>adadrewardvideoadshow</event>
+        <event>adadrewardvideoaderror(errorCode As Int, errorMessage As String)</event>
+        <event>adadrewardvideoaddestroy</event>
+        <event>adadrewardvideoadclick</event>
+        <event>adadrewardvideoadclose</event>
+        <event>adadrewardvideoadcomplete</event>
+        <event>adadrewardvideoadstart</event>
+        <permission>android.permission.INTERNET</permission>
+        <permission>android.permission.ACCESS_NETWORK_STATE</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <permission>android.permission.ACCESS_COARSE_LOCATION</permission>
+        <permission>android.permission.ACCESS_FINE_LOCATION</permission>
+        <method>
+            <name>isTestMode</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>addBannerAdToActivity</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>adContainerToken</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>verticalPosition</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>horizontalPosition</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isAdadEnable</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isAdadInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isClosableVideoAdReady</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isFullscreenBannerReady</name>
+            <comment>A static method for checking fullscreen banner is ready to show or not
+Return type: @return:a boolean that indicate fullscreen banner ready status</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isGeneralVideoAdReady</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>initializeAdad</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>appToken</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>destroyAdad</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>showGeneralVideoAd</name>
+            <comment>A static method for showing video ad</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>showRewardVideoAd</name>
+            <comment>A static method for showing video ad</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isClosableVideoVisible</name>
+            <comment>A static method for checking video ad visibility status
+Return type: @return:a boolean that indicates video ad visibility status</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isGeneralVideoVisible</name>
+            <comment>A static method for checking video ad visibility status
+Return type: @return:a boolean that indicates video ad visibility status</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>showClosableVideoAd</name>
+            <comment>A static method for showing video ad</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>prepareRewardVideoAd</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>adContainerToken</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isRewardVideoVisible</name>
+            <comment>A static method for checking video ad visibility status
+Return type: @return:a boolean that indicates video ad visibility status</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>prepareFullscreenBannerAd</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>adContainerToken</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>prepareClosableVideoAd</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>adContainerToken</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isRewardVideoAdReady</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>prepareGeneralVideoAd</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>adContainerToken</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isFullscreenBannerVisible</name>
+            <comment>A static method for checking fullscreen banner is visible or not
+Return type: @return:a boolean that indicate fullscreen banner visibility status</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>showFullscreenBannerAd</name>
+            <comment>A static method for showing fullscreen banner</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <property>
+            <name>AdadEnable</name>
+            <parameter>
+                <name>enable</name>
+                <type>boolean</type>
+            </parameter>
+            <comment></comment>
+        </property>
+        <property>
+            <name>TestMode</name>
+            <parameter>
+                <name>testMode</name>
+                <type>boolean</type>
+            </parameter>
+            <comment></comment>
+        </property>
+    </class>
+    <version>5.11</version>
+    <author>adad</author>
+    <dependsOn>android-support-v4</dependsOn>
+    <dependsOn>play-services-ads-identifier-16.0.0</dependsOn>
+    <dependsOn>david-webb-1.3.0</dependsOn>
+    <dependsOn>adad-sdk-core-5.1.1.aar</dependsOn>
+    <dependsOn>adad-sdk-ad-5.1.1.aar</dependsOn>
+    <dependsOn>adad-sdk-banner-5.1.1.aar</dependsOn>
+    <dependsOn>adad-sdk-fullscreen-5.1.1.aar</dependsOn>
+    <dependsOn>adad-sdk-video-5.1.1.aar</dependsOn>
+</root>

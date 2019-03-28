@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_adad_*,@drawable-hdpi/ic_adad_*,@drawable-mdpi/ic_adad_*,@drawable-xhdpi/ic_adad_*,@drawable-xxhdpi/ic_adad_*,"
+     />
